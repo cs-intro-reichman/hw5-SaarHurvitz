@@ -3,17 +3,8 @@ public class Wordle {
     // Reads all words from dictionary filename into a String array.
     public static String[] readDictionary(String filename) {
         In in  = new In(filename);
-        
-        int N = in.readInt();
-        in.readLine();
-        // Creates a frequency array
-        String[] dictionary = new String[N];
-        // Reads and counts the values
-        for(int i=0; i < N; i++){
-            dictionary[i] = in.readString();
-        }
 
-        return dictionary;
+        return in.readAllStrings();
           // Prints the frequency array
 // ...
     }
@@ -126,7 +117,7 @@ public class Wordle {
                 System.out.print("Enter your guess (5-letter word): ");
                 guess = inp.readString();// ... read from the standrad input
                 
-                if (guess.length() != WORD_LENGTH) {
+                if (guess.length() != 5) {
                     System.out.println("Invalid word. Please try again.");
                 } else {
                     valid = true;
